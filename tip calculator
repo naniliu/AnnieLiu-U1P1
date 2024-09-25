@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+
+        //user input
+        Scanner bill =  new Scanner(System.in);
+        System.out.print("What is your bill? $");
+        double totalbill = bill.nextDouble(); //turns the amount into a double for easier calculation later on
+        //bill without the tip
+
+        Scanner tip =  new Scanner(System.in);
+        System.out.print("Enter the tip (whole number without % sign): ");
+        double percentage = tip.nextDouble(); //turns the percentage into a double for easier calculation later on
+        //tip percentage
+
+        Scanner people =  new Scanner(System.in);
+        System.out.print("Enter the number of people at party: ");
+        double ppl = people.nextDouble(); //turns the amount of people into a double for easier calculation later on
+        //the amount of people paying the bill
+
+        //assign variables
+        double totaltip;
+        double totalbillwithtip;
+        double tipperperson;
+        double totalperperson;
+
+        //calculation
+        totaltip = totalbill * (percentage / 100); //total tip not bill
+        tipperperson = totaltip / ppl; //the amount of tip each person pays
+        totalbillwithtip = totalbill + totaltip; //bill amount with tip
+        totalperperson = tipperperson + (totalbill / ppl); //total amount of money per person
+
+        //bill/tip calculation
+        System.out.printf("Your total tip amount is " + "$%.2f %n", totaltip);
+        System.out.printf("Your total bill including tip is " + "$%.2f %n", totalbillwithtip);
+        System.out.printf("Your total per person is " + "$%.2f %n", totalperperson); //$ sign is included in the output
+        System.out.printf("Your total tip per person is " + "$%.2f %n", tipperperson); //all calculations are rounded to the nearest hundredth
+    }
+}
